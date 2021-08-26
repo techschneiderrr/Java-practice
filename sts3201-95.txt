@@ -1,0 +1,616 @@
+VARIABLE:
+->a variable is a name of memory location
+->a variable is assigned with a datatype
+->a varaible is the name of a reserved area allocated in memory
+
+ex:
+int data =50;
+
+->here data is the variable
+
+types of variable:
+->local variable
+->instance variable
+->static variable
+
+local variable
+->a varaible declared inside the body of the method
+->a local variable cannot  be defined with static veriable
+
+instance variable:
+->a variable declared inside the class but outside the body of the method 
+->it is not declared as static 
+->it is called an instance variable b/c its value is instance -specific and is not shared among instance
+
+static variable:
+->a varaible that is declared as static is called a static variable
+->it cannot be local
+->you can create a single copy ofthe static variable and share it among all the instances of the class
+->memory allocation for static variable happens only once when the class is loaded in the memory
+
+ex:
+public class A
+{
+static int m=100;//static variable
+
+void method()
+{
+int n=90;//local variable
+}
+public static void main(String args[])
+{
+int data=50; //instance variable
+}
+}
+
+public class Simple
+{
+psvm()
+{
+int a=10;
+float f=20;
+System.out.println(a);
+s.o.p(f);
+}
+}
+o/p
+10
+20.0
+
+ex:widening
+public class Simple
+{
+psvm()
+{
+int a=10;
+float f=a;
+System.out.println(a);
+s.o.p(f);
+}
+}
+
+o/p
+10
+10.0
+
+typecasting:
+public class Simple
+{
+psvm()
+{
+
+float f=20.5f;
+//int a=f;//compile time error
+int a=(int)f;
+System.out.println(f);
+s.o.p(a);
+}
+}
+o/p
+20.5
+20
+
+overflow:
+public class Simple
+{
+psvm()
+{
+int a=130;
+//overflow
+byte b=(byte)a;
+
+System.out.println(a);
+s.o.p(b);
+}
+}
+o/p
+
+130
+-126
+
+adding lower type(byte)
+
+public class Simple
+{
+psvm()
+{
+byte a=10;
+byte b=10;
+//byte c=a+b;//compile time error b/c a+b=20 will be the int
+byte c= byte(a+b);
+System.out.println(a);
+s.o.p(f);
+}
+}
+o/p
+20
+
+datatypes:
+->it specify the different sizes and values that can be stored in the varaible
+->two types of datatypes in java
+1.primitive
+2.non primitive 
+
+1.primitive:
+->are the bulding blocks of data manipulation
+8 types of primitive datatypes:
+datatypes------->defaut value------->default size
+1.boolean------->false-------------->1 bit
+2.byte---------->0------------------>1 byte
+3.char---------->\u0000------------->2 byte
+4.short--------->0------------------>2 byte
+5.int----------->0------------------>4 byte
+6.long---------->0L----------------->8 byte
+7.float--------->0.0f--------------->4 byte
+8.double-------->0.0d--------------->8 byte
+
+1.boolean:
+->is used to store only two possible values:true and false
+->is used for simple flags that track true/false 
+ex:
+Boolean one =false;
+
+2.byte:
+->it is 8 bit signed twos complement integer
+->its value range lies b/w -128 to 127(inclusive)
+->is used to save memory in large arrays where the memory saving is most required
+->it saves space b/c a byte is 4 times smaller than an integer
+ex:
+byte a=10
+byte b=-20
+
+3.short:
+->it is 16 bit signed twos complement integer
+->it value range b/w -32768 to 32767
+ex:
+short s=10000;
+short r=-2000
+
+4.int:
+->it is 32 bit signed twos complement integer 
+->its valu range lies b/w -2147483648 (-2^31) to 2147483647 (2^31 -1)
+ex:
+int a=100000;
+int b=-200000
+
+5.long:
+->it is 64 bit signed twos complement integer
+->the value range lies b/w (-2^63) to (2^63 -1)
+->is usedwhen you needarangeof values more than those provided by int 
+ex:
+long a=100000L;
+long b=-200000L;
+
+6.float datatype:
+->is a single - precision 32 bit floating point 
+->its value range is unlimited
+ex:
+float f=234.5f;
+
+7.double:
+->is a double-precision 64 bit floating point 
+->its value range is unlimited
+ex:
+double d=12.3;
+
+8.char:
+->is a single 16-bit unicode character.
+->it value ranges b/w \u0000 (0)to \uffff (65535)
+ex:
+char letter ='A';
+
+1.why char uses 2 byte in java and what is \u0000?
+->it is b/c java yses unicode system not ascii code
+->\u0000-lowest range of unicode
+
+Operators:
+->is used to perform operations
+
+types of operator:
+1.unary
+2.arithmetic
+3.shift
+4.relational
+5.bitwise
+6.logical
+7.ternary 
+8.assignment
+
+1.unary operator:
+->require only one operand
+->used to perform various operations
+1.incrementing/decrementing
+2.negating an expression
+3.inverting the value of a boolean
+
+prefix		postfix
+1.i=++x		2.i=x++
+i)increment	i)assign
+ii)assign	ii)increment
+
+
+1.public class Operator1
+{
+public static void main(String args[])
+{
+int x=10;
+s.o.p(x++);10(11)
+s.o.p(++x);12
+s.o.p(x--);12(11)
+s.o.p(--x);10
+}
+}
+
+int a=12;
+int b=12;
+s.o.p(a++ + ++a);10+12=22
+s.o.p(b++ + b++);10+11=21
+
+int a=10;
+int b=-10;
+boolean c=true;
+s.o.p(~a);=10=1010=>0101=-11
+s.o.p(~b);9
+s.o.p(!c);false
+
+
+int a=10
+int b=5
+s.o.p(a/b);10/5=2(quotient)
+s.o.p(a%b);10%5=0(remainder)
+
+s.o.p(10*10/5+3-1*4/2);//21
+
+JAVA I/O:
+->is used to process the i/p and produce the o/p
+->usesthe concept of a stream to make i/o operation fast
+->java.io package contains all the classes required for i/p and o/p operations
+
+stream:
+->is a sequence of data
+->is composed bytes
+
+in java ,3 streams are created for us automatically
+->all these streams are attached with the console
+1.system.in-Standard input stream
+2.system.out-Standard o/p stream
+3.system.err-Standard error stream
+
+code to print o/p msg and error to the console:
+
+System.out.println("simple msg");
+System.err.println("error msg");
+
+outputstream class:
+->uses an o/p stream to write data to a destination,it may be a file,an array,or socket
+->is an abstract class
+->it is the siuper clas of all classes representing aan o/p stream of bytes
+
+useful methods of o/p stream:
+1.public void write(int) throws ioexception-is used to write an byte to the current o/p stream 
+2.public void write(byte[]) throws IOException-is used to write an array of byte to the currrent o/p stream
+3.public void flush() throws IOException- flushes the current o/p stream
+4.public void close() throws IOException-is used  close the current o/p stream
+
+inputstream class:
+->is an abstract class
+->it is the super class of allclassesrepresenting an i/p stream of bytes
+
+method:
+1.public abstract int read() throws IOExecption-reads the next byte of data from the i/p stream.
+->it returns -1 at the end of the file
+2.public int available() throws IOExecption-returns an estimate of the number of bytes that can be read from the current i/p stream
+3.public void close() throws IOExecption-is used to close thecurrent i/p stream
+
+file outputstream class
+->is and o/p stream used for writing data to a file
+
+syn:
+public class FileOutputStream extends OutputStream
+
+methods:
+1.protected void finalize()-it is used to clean up the connection with the file o/p stream
+2.void write(byte[] ary)-it is used to write ary.length bytes from the byte array to the file o/p stream 
+3.close()-is used to close the file o/p stream
+
+
+example:write byte
+
+import java.io.FileOutputStream;
+class FileOutputStreamEx
+{
+psvm()
+{
+FileOutputStream fout=new FileOutputStream("D:\\test.txt");
+fout.write(65);//A
+fout.close();
+s.o.p("success");
+}}
+
+o/p
+success
+
+the content of a text file test.txt is set with the data A
+
+2.write string
+
+import java.io.FileOutputStream;
+class FileOutputStreamEx
+{
+psvm()
+{
+FileOutputStream fout=new FileOutputStream("D:\\test.txt");
+String s="welcome";
+byte b[]=s.getBytes();//converting string into byte array
+fout.write(b);
+fout.close();
+s.o.p("success");
+}}
+
+o/p
+success
+
+the content of a text file test.txt is set with the data welcome
+
+java user input:
+
+->Scanner class is used to get user i/p
+->it is found in the java.util package
+->to use scanner class,create an obj of the class and use any of the available method found in scanner class
+
+ex:
+import java.util.Scanner;
+class Main
+{
+psvm()
+{
+Scanner myobj=new Scanner(System.in);//create a scanner obj
+s.o.p("enter username");
+String username=myobj.nextLine();//isused to read string or reads user i/p
+s.o.p("username is:"+username);
+}
+}
+o/p
+enter username:hari
+username is :hari
+
+ex:2
+import java.util.Scanner;
+class Main
+{
+psvm()
+{
+Scanner myobj=new Scanner(System.in);//create a scanner obj
+s.o.p("enter name,age,and salary");
+//String i/p
+String name=myobj.nextLine();
+
+//numerical i/p
+int age=myobj.nextInt();
+double salary=myobj.nextDouble();
+
+s.o.p("name:"+name);
+s.o.p("age:"+age);
+s.o.p("salary:"+salary);
+}
+}
+o/p
+enter name,age,and salary hari 30 100000
+name:hari 
+age:30
+salary:100000
+
+Command line arguments:
+->passed at the time of running the java pgm
+->the argument passed from the console can be received int pgm and it can be used as an i/p
+
+ex:
+class CommandLineEx
+{
+psvm()
+{
+s.o.p("your first argument is :"+args[0]);
+}
+}
+
+compile by> javac CommandLineEx.java
+run by> java CommandLineEx sonu
+
+o/p
+your first argument is :sonu
+
+2.we are printing all the arguments passed from the command line .for this we hav traversed the array by using for loop
+
+Class A
+{
+psvm()
+{
+for(int i=0;i<args.length;i++)
+s.o.p(args[i]);
+}
+}
+
+compile by>javac A.java
+run by>java A sonu mohan 1 3 abc
+
+o/p
+sonu
+mohan
+1
+3 
+abc
+
+buffered reader class:
+->is used to read the text from a character based i/p stream
+->it can be used to read data line by line by readLine().
+->it makes the performance fast
+->it inherits reader class
+
+import java.io.*;
+class BufferedReaderEx
+{
+psvm()
+{
+InputStreamReader r=new InputStreamReader(System.in);
+BufferedReader br=new BufferedReader(r);
+s.o.p("enter your name");
+String name=br.nextLine();
+s.o.p("welcome"+name);
+}
+}
+o/p
+enter your name ragul
+welcome ragul
+
+
+java pgm->br(1001010101)->r(1001010101)->System.in(1001010101)->device buffer(1001010101)->keyboard
+
+control stmt:
+->java compiler executes the code from top to bottom.
+->the stmt in the cod are executed according to the order in which they appear.
+->java provides stmt that can be used to control the flow of code
+->java provides three types of control flow stmt 
+1.decision making
+2.looping
+3.jumping
+
+1.decision making:
+->this stmt decide which stmt to execute and when
+->stmt eveluate the boolean expression and control the pgm flow depending upon the result of the condition provided 
+->two types of decision making
+1.if stmt
+2.switch stmt
+
+1.if stmt:
+->is use dto evaluate a condition
+->the condition of the if stmt gives a boolean value,either true or false
+1.simple if
+2.if else
+3.if else if ladder
+4.nested if stmt
+
+1.simple if:
+->it evaluate a boolean expression and enables the pgm to enter a block of code if the expression evaluates to true
+
+syn:
+if(condition)
+{
+//stmt;//execute when condition is true
+}
+
+ex:
+class Student
+{
+psvm()
+{
+int x=10;
+int y=12;
+if(x+y > 20)
+{
+s.o.p("x+y is greater than 20");
+}
+}
+}
+
+o/p
+x+y is greater than 20
+
+if -else stmt:
+->is an extension to the if stmt which uses another block of code ie else block
+syn:
+if(condition)
+{
+//true stmt;
+}
+else
+{
+//false stmt
+}
+
+class Student
+{
+psvm()
+{
+int x=10;
+int y=12;
+if(x+y < 20)
+{
+s.o.p("x+y is greater than 20");
+}
+else
+{
+s.o.p("x+y is lesser than 20");
+}
+}
+}
+o/p
+x+y is lesser than 20
+
+3.if else if ladder:
+->the if else if stmt contains the if stmt followed by multiple else if stmt.
+
+syn:
+if(condition 1)
+{
+stmt 1;
+}
+else if(condition 2)
+{
+stmt 2;
+}
+else
+{
+stmt;
+}
+
+ex:
+class City
+{
+psvm()
+{
+String city="delhi";
+if(city=="meerut")
+{
+s.o.p("city is meerut");
+}
+else if(city=="noida")
+{
+s.o.p("city is noida");
+}
+else if(city=="agra")
+{
+s.o.p("city is agra");
+}
+else
+{
+s.o.p(city);
+}
+}
+}
+
+o/p
+delhi
+
+Switch stmt:
+->case variable can be int,short,byte,char or enumeration.
+->cases cannot be duplicate
+->default stmt isexecuted when any of the case doesnot match the value of expression.it is optional
+->break stmt terminates the switch block when the condition is satisfied 
+
+syn:
+switch(expression)
+{
+case value1:
+stmt1;
+break;
+.
+.
+.
+.
+case value n:
+stmt n;
+break;
+default:
+stmt;
+}
+
