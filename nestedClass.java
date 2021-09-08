@@ -1,7 +1,7 @@
 public class nestedClass {
     
 }
-// JAVA inner classes and nested classes 
+
 // ->is a class that is a class declared inside a class or an interface
 // ->we use inner classes to logically group classes and interface in one place to be more readable and maintainable
 // -> it can access all the members of tghe outer class, including the private data members and the methods
